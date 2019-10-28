@@ -10,26 +10,22 @@ namespace Prime_Numbers
     {
         public static bool Prime(int num)
         {
-            for (int i = 2; i < Math.Sqrt(num); i++)
+            for (int i = 2; i <= Math.Sqrt(num); i++)
             {
-                return num % i == 0 ? true : false;
+                if (num % i == 0) { return false; }
             }
             return true;
         }
-        static void Main(string[] args)
+        static void Main()
         {
-            int num = 0;
+            int num = 2;
 
             do
             {
-                //Prime(num) == true ? Console.WriteLine(num) : Console.Write("");
-                Prime(num);
-                if (Prime(num) == true) 
-                {
-                    Console.WriteLine(num);
-                }
+                if (Prime(num)) { Console.WriteLine(num); }
+
                 num += 1;
-            } while (num <= 10000);
+            } while (num < 10000);
 
             Console.WriteLine("Press any key to close the program.");
             Console.ReadKey();
